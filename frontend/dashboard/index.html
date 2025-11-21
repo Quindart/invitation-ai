@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Lễ Tốt Nghiệp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <h1>🔐 Admin Dashboard</h1>
+            <p>Nhập mã bảo mật để tiếp tục</p>
+            <form id="loginForm">
+                <input 
+                    type="password" 
+                    id="adminCode" 
+                    placeholder="Nhập mã 10 ký tự" 
+                    maxlength="10"
+                    required
+                    autocomplete="off"
+                >
+                <button type="submit">Vào Dashboard</button>
+                <div id="loginError" class="login-error"></div>
+            </form>
+        </div>
+    </div>
+
+    <div id="dashboardContainer" class="container" style="display: none;">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h2>👨‍🎓 Admin Dashboard</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-section="graduates">Người Tốt Nghiệp</a></li>
+                <li><a href="#" class="nav-link" data-section="invitations">Tạo Thiệp</a></li>
+                <li><a href="../" class="nav-link">← Xem Thiệp Công Khai</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Section 1: Manage Graduates -->
+            <section id="graduates-section" class="section active">
+                <h2>Quản Lý Người Tốt Nghiệp</h2>
+
+                <!-- Create Graduate Form -->
+                <div class="form-container">
+                    <h3>Tạo Thông Tin Người Tốt Nghiệp</h3>
+                    <form id="graduateForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Tên Người Tốt Nghiệp *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="degree">Bằng Cấp *</label>
+                                <select id="degree" name="degree" required>
+                                    <option value="">-- Chọn --</option>
+                                    <option value="Bachelor">Bachelor (Cử nhân)</option>
+                                    <option value="Master">Master (Thạc sĩ)</option>
+                                    <option value="PhD">PhD (Tiến sĩ)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="department">Ngành Học *</label>
+                                <input type="text" id="department" name="department" placeholder="VD: Computer Science" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="graduation_date">Ngày Tốt Nghiệp *</label>
+                                <input type="date" id="graduation_date" name="graduation_date" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="graduation_time">Giờ Tốt Nghiệp *</label>
+                                <input type="time" id="graduation_time" name="graduation_time" required>
+                            </div>
+                        </div>
+
+                        <!-- Venue Information -->
+                        <fieldset>
+                            <legend>Thông Tin Địa Điểm</legend>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="venue_name">Tên Địa Điểm *</label>
+                                    <input type="text" id="venue_name" name="venue_name" placeholder="VD: Hội Trường A" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="venue_address">Địa Chỉ *</label>
+                                    <input type="text" id="venue_address" name="venue_address" placeholder="VD: 123 Đường ABC, Hà Nội" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="venue_parking">Chỗ Đậu Xe</label>
+                                <input type="text" id="venue_parking" name="venue_parking" placeholder="VD: B3, B4">
+                            </div>
+                        </fieldset>
+
+                        <!-- Contact Information -->
+                        <fieldset>
+                            <legend>Thông Tin Liên Hệ</legend>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Điện Thoại *</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+84912345678" required>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Photo Upload -->
+                        <fieldset>
+                            <legend>Ảnh (Optional)</legend>
+                            <div id="photoContainer">
+                                <div class="photo-input-group">
+                                    <label>Tải Lên Ảnh 1</label>
+                                    <input type="file" class="photo-file" accept="image/*" placeholder="Chọn file ảnh">
+                                </div>
+                            </div>
+                            <button type="button" class="btn-add" onclick="addPhotoInput()">+ Thêm Ảnh</button>
+                            <div id="uploadProgress" style="margin-top: 10px; display: none;">
+                                <p id="uploadStatus">Đang tải lên...</p>
+                                <progress id="uploadBar" max="100" value="0" style="width: 100%; height: 10px;"></progress>
+                            </div>
+                        </fieldset>
+
+                        <!-- Template -->
+                        <fieldset>
+                            <legend>Mẫu Thiệp (Optional)</legend>
+                            <textarea id="template" name="template" placeholder="HTML hoặc text cho thiệp mời..." rows="4"></textarea>
+                        </fieldset>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Tạo Người Tốt Nghiệp</button>
+                            <button type="reset" class="btn-secondary">Xóa</button>
+                        </div>
+                        <div id="graduateMessage" class="message"></div>
+                    </form>
+                </div>
+
+                <!-- Graduates List -->
+                <div class="list-container">
+                    <h3>Danh Sách Người Tốt Nghiệp</h3>
+                    <div id="graduatesList" class="graduates-list"></div>
+                </div>
+            </section>
+
+            <!-- Section 2: Create Invitations -->
+            <section id="invitations-section" class="section">
+                <h2>Tạo Thiệp Mời</h2>
+
+                <div class="form-container">
+                    <h3>Tạo Mã Thiệp Mời</h3>
+                    <form id="invitationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="graduate_id">Chọn Người Tốt Nghiệp *</label>
+                                <select id="graduate_id" name="graduate_id" required>
+                                    <option value="">-- Chọn --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <fieldset>
+                            <legend>Danh Sách Người Được Mời</legend>
+                            <div id="guestContainer">
+                                <div class="guest-input-group">
+                                    <label>Tên Người Được Mời 1</label>
+                                    <input type="text" class="guest-name" placeholder="VD: Nguyễn Văn A" required>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-add" onclick="addGuestInput()">+ Thêm Người</button>
+                        </fieldset>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Tạo Thiệp Mời</button>
+                            <button type="reset" class="btn-secondary">Xóa</button>
+                        </div>
+                        <div id="invitationMessage" class="message"></div>
+                    </form>
+                </div>
+
+                <!-- Invitations List -->
+                <div class="list-container">
+                    <h3>Danh Sách Thiệp Mời</h3>
+                    <p style="color: #999; margin-bottom: 15px; font-size: 0.9em;">Chọn người tốt nghiệp từ form phía trên để xem danh sách thiệp mời của họ</p>
+                    <div id="invitationsList" class="invitations-list"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

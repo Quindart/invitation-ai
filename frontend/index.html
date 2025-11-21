@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Mời Lễ Tốt Nghiệp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Page 1: Invitation Code Input -->
+        <div id="codePage" class="page">
+            <div class="content-center">
+                <h1>Lễ Tốt Nghiệp</h1>
+                <p class="subtitle">Vui lòng nhập mã thiệp mời của bạn</p>
+                
+                <form id="codeForm">
+                    <input 
+                        type="text" 
+                        id="invitationCode" 
+                        placeholder="Nhập mã 6 số" 
+                        maxlength="6"
+                        pattern="[0-9]{6}"
+                        required
+                    >
+                    <button type="submit">Vào Trang Thiệp</button>
+                </form>
+                <p id="errorMessage" class="error"></p>
+            </div>
+        </div>
+
+        <!-- Page 2: Invitation Card -->
+        <div id="invitationPage" class="page hidden">
+            <div class="invitation-card">
+                <div class="card-header">
+                    <h1>Lời Mời</h1>
+                </div>
+                
+                <div class="card-body">
+                    <p id="guestGreeting" class="greeting">Kính gửi các bạn,</p>
+                    
+                    <p id="graduateName" class="graduate-name"></p>
+                    <p class="greeting-text">
+                        Trân trọng mời bạn đến dự lễ tốt nghiệp
+                    </p>
+                    
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span class="label">📅 Thời gian:</span>
+                            <span id="graduationTime"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">📍 Địa điểm:</span>
+                            <span id="venueName"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">🏢 Địa chỉ:</span>
+                            <span id="venueAddress"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">🅿️ Chỗ đậu xe:</span>
+                            <span id="venueParking"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">📞 Liên hệ:</span>
+                            <span id="graduatePhone"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <p>Chúc bạn có một buổi lễ tuyệt vời!</p>
+                </div>
+            </div>
+
+            <!-- Chatbot Section -->
+            <div class="chatbot-section">
+                <h2>Hỏi về Lễ Tốt Nghiệp</h2>
+                <div id="chatMessages" class="chat-messages"></div>
+                <form id="chatForm">
+                    <input 
+                        type="text" 
+                        id="chatInput" 
+                        placeholder="Nhập câu hỏi của bạn..."
+                    >
+                    <button type="submit">Gửi</button>
+                </form>
+            </div>
+
+            <button id="backBtn" class="btn-secondary">Quay lại</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
