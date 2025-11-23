@@ -41,5 +41,5 @@ yarn-error.log*
 next-env.d.ts
 
 
-!client-webapp/lib/
-!client-webapp/lib/utils.ts
+!lib/
+!lib/utils.ts
