@@ -2,7 +2,7 @@
 
 Ứng dụng web thiệp mời lễ tốt nghiệp - hỗ trợ nhiều người tốt nghiệp, mỗi người có thể gửi thiệp cho bạn bè với thông tin sự kiện của riêng họ.
 
-## 🎯 Tính Năng Chính
+## Tính Năng Chính
 
 - **Xác thực bằng mã**: Nhập mã 6 số để truy cập thiệp mời
 - **Thiệp mời cá nhân hóa**: Hiển thị tên người nhân và thông tin lễ tốt nghiệp tương ứng
@@ -11,7 +11,7 @@
 - **Responsive Design**: Hoạt động tốt trên desktop, tablet, mobile
 - **Azure Deployment**: Sẵn sàng deploy lên Azure Container Apps
 
-## 📦 Cấu Trúc Dự Án
+##  Cấu Trúc Dự Án
 
 ```
 invitation-ai/
@@ -45,7 +45,7 @@ invitation-ai/
 └── README.md
 ```
 
-## 🔧 Cài Đặt
+##  Cài Đặt
 
 ### Backend
 
