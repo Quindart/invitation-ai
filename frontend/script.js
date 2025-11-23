@@ -1,5 +1,7 @@
 // API Base URL
-const API_URL = 'http://localhost:8000/api';
+
+const API_URL =
+  'https://invitation-backend.jollysea-6ff72832.southeastasia.azurecontainerapps.io/api';
 
 // Elements
 const codePage = document.getElementById('codePage');
