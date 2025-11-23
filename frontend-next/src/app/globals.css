@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #F6F2EB;
+}
+
+/* Custom fonts */
+.font-display {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.15em;
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Luxury gradient */
+.gradient-hero {
+  background: linear-gradient(135deg, #0B132B 0%, #111827 50%, #1F2A44 100%);
+}
+
+/* Soft shadow */
+.shadow-soft {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Glass morphism light */
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gold accent text */
+.text-gold {
+  background: linear-gradient(135deg, #FFD97A 0%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation border pulse */
+@keyframes border-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+  }
+}
+
+.animate-border-pulse {
+  animation: border-pulse 2s infinite;
+}

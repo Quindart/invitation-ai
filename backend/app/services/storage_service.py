@@ -6,7 +6,7 @@ import os
 import uuid
 from typing import Optional
 from io import BytesIO
-from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, ContentSettings
 from app.config import settings
 
 class StorageService:
@@ -50,15 +50,30 @@ class StorageService:
                 container_client.create_container(public_access="blob")
             
             # Generate unique blob name
-            file_ext = os.path.splitext(file_name)[1]
+            file_ext = os.path.splitext(file_name)[1].lower()
             blob_name = f"{graduate_id}/{uuid.uuid4()}{file_ext}"
+            
+            # Determine content type based on file extension
+            content_type_map = {
+                '.jpg': 'image/jpeg',
+                '.jpeg': 'image/jpeg',
+                '.png': 'image/png',
+                '.gif': 'image/gif',
+                '.webp': 'image/webp',
+                '.svg': 'image/svg+xml'
+            }
+            content_type = content_type_map.get(file_ext, 'application/octet-stream')
             
             # Upload file
             blob_client = self.blob_service_client.get_blob_client(
                 container=self.container_name,
                 blob=blob_name
             )
-            blob_client.upload_blob(file_content, overwrite=True)
+            blob_client.upload_blob(
+                file_content, 
+                overwrite=True,
+                content_settings=ContentSettings(content_type=content_type)
+            )
             
             # Return public URL
             blob_url = blob_client.url
