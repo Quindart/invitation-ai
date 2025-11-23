@@ -6,15 +6,11 @@
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38BDF8?logo=tailwindcss)
 ![shadcn/ui](https://img.shields.io/badge/shadcn/ui-latest-black)
-
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python)
 ![Uvicorn](https://img.shields.io/badge/Uvicorn-0.30-499848)
-
 ![MongoDB](https://img.shields.io/badge/MongoDB-7.0-47A248?logo=mongodb)
-
 ![Azure OpenAI](https://img.shields.io/badge/Azure%20OpenAI-GPT-blue?logo=microsoft-azure)
-
 ![Docker](https://img.shields.io/badge/Docker-26-2496ED?logo=docker)
 ![Docker Compose](https://img.shields.io/badge/Compose-2.29-2496ED?logo=docker)
 
