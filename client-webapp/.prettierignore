@@ -1,0 +1,28 @@
+# Build
+.next
+dist
+build
+
+# Node
+node_modules
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Git
+.gitignore
+
+# Env
+.env
+.env.*.local
+
+# Outputs
+coverage
+public
+
+# Generated files
+*.min.js
+*.map
+
+# Misc
+.DS_Store
