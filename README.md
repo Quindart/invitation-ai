@@ -1,126 +1,101 @@
-# Graduation Invitation Web App
+# Graduation Invitation – Smart Graduation Invitation Web App
 
-Ứng dụng web thiệp mời lễ tốt nghiệp - hỗ trợ nhiều người tốt nghiệp, mỗi người có thể gửi thiệp cho bạn bè với thông tin sự kiện của riêng họ.
+Graduate Invitation is a modern web application that allows multiple graduates to create and share personalized graduation invitation pages. Each graduate can generate unique access codes for their guests, while visitors can view event details and interact with an integrated AI chatbot for ceremony-related questions.
 
-## Tính Năng Chính
+## Key Features
 
-- **Xác thực bằng mã**: Nhập mã 6 số để truy cập thiệp mời
-- **Thiệp mời cá nhân hóa**: Hiển thị tên người nhân và thông tin lễ tốt nghiệp tương ứng
-- **Hỗ trợ nhiều người**: Mỗi người tốt nghiệp có thể tạo riêng invitation code cho bạn bè
-- **Chatbot thông minh**: Hỏi thông tin về lễ tốt nghiệp bằng LLM (Azure OpenAI GPT)
-- **Responsive Design**: Hoạt động tốt trên desktop, tablet, mobile
-- **Azure Deployment**: Sẵn sàng deploy lên Azure Container Apps
+- Code-based authentication (6-digit)
+- Personalized invitations
+- Multi-graduate support
+- AI chatbot (Azure OpenAI GPT)
+- Responsive design
+- Azure deployment-ready
+- Modern frontend with Next.js + shadcn/ui
 
-##  Cấu Trúc Dự Án
+## Tech Stack
+
+### Frontend
+- Next.js 14 (App Router)
+- TypeScript
+- shadcn/ui
+- Tailwind CSS
+- HTML/CSS/JS (public static pages)
+
+### Backend
+- FastAPI
+- Pydantic
+- MongoDB
+- Uvicorn
+- Docker
+
+### AI Integration
+- Azure OpenAI GPT models
+
+### DevOps
+- Docker / Docker Compose
+- Environment-based config
+
+## Project Structure
 
 ```
 invitation-ai/
-├── backend/                 # FastAPI backend
+├── backend/
 │   ├── app/
 │   │   ├── models/
-│   │   │   └── schemas.py  # Pydantic models
 │   │   ├── routes/
-│   │   │   ├── graduates.py
-│   │   │   ├── invitations.py
-│   │   │   └── chatbot.py
 │   │   ├── services/
-│   │   │   ├── graduate_service.py
-│   │   │   ├── invitation_service.py
-│   │   │   └── chatbot_service.py
-│   │   ├── config.py       # Configuration
-│   │   ├── database.py     # MongoDB connection
-│   │   └── main.py         # FastAPI app
+│   │   ├── config.py
+│   │   ├── database.py
+│   │   └── main.py
 │   ├── requirements.txt
 │   ├── .env.example
-│   └── .env               # (Tạo từ .env.example)
-├── frontend/               # Frontend HTML/CSS/JS (Public pages)
-│   ├── index.html          # Public invitation viewing page
+│   └── .env
+├── frontend/
+│   ├── index.html
 │   ├── style.css
 │   ├── script.js
-│   ├── serve.py           # Multi-port server script
-│   └── dashboard/         # Admin dashboard (Private)
-│       ├── index.html
-│       ├── style.css
-│       └── script.js
+│   └── dashboard/
 └── README.md
 ```
 
-##  Cài Đặt
+## Backend Setup
 
-### Backend
-
-#### Chạy bằng Dockerfile
-1. **Build Dockerfile**
-```bash
-docker build -t invitation-api .
+### Docker
 ```
-
-2. **Run**
-```bash
+docker build -t invitation-api .
 docker run -p 8000:8000 invitation-api
 ```
 
-
-#### Setup Manual
-1. **Clone repository và vào thư mục backend:**
-```bash
+### Manual
+```
 cd backend
-```
-
-2. **Tạo virtual environment:**
-```bash
 uv venv
-```
-
-3. **Cài đặt dependencies:**
-```bash
 uv pip install -r requirements.txt
-```
-
-5. **Chạy server:**
-```bash
 uv -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-Backend sẽ chạy tại: http://localhost:8000
+## Frontend Setup
 
-**API Documentation:**
-- Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
-
-### Frontend
-
-Frontend hiện có 2 phần riêng biệt:
-- **Public Page** (port 3000): Trang công khai cho khách xem thiệp mời
-- **Admin Dashboard** (port 3001): Trang quản lý cho người tốt nghiệp (yêu cầu code bảo mật)
-
-#### Option 1: Chạy riêng từng phần (Recommended)
-
-**Public page (port 3000):**
-```bash
+### Public Page
+```
 cd frontend
 python3 -m http.server 3000
 ```
 
-**Admin dashboard (port 3001):**
-```bash
+### Admin Dashboard
+```
 cd frontend/dashboard
 python3 -m http.server 3001
 ```
 
-Truy cập:
-- Public: http://localhost:3000
-- Admin:  http://localhost:3001 (mã bảo mật xem code)
-
-#### Option 2: Dùng Docker Compose (All-in-One)
-
-Khởi động toàn bộ hệ thống (backend + mongo + frontend):
-```bash
-docker-compose up
+## Docker Compose
+```
+docker-compose up --build
 ```
 
-Services sẽ tự động chạy tại:
-- Backend API: http://localhost:8000
-- Public Page: http://localhost:3000
-- Admin Dashboard: http://localhost:3001
-- MongoDB: localhost:27017
+## Roadmap
+
+- Full Next.js migration
+- Multi-language support
+- QR-code invitations
+- Dynamic OG images
