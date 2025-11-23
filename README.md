@@ -1,5 +1,23 @@
 # Graduation Invitation – Smart Graduation Invitation Web App
 
+
+![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38BDF8?logo=tailwindcss)
+![shadcn/ui](https://img.shields.io/badge/shadcn/ui-latest-black)
+
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi)
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python)
+![Uvicorn](https://img.shields.io/badge/Uvicorn-0.30-499848)
+
+![MongoDB](https://img.shields.io/badge/MongoDB-7.0-47A248?logo=mongodb)
+
+![Azure OpenAI](https://img.shields.io/badge/Azure%20OpenAI-GPT-blue?logo=microsoft-azure)
+
+![Docker](https://img.shields.io/badge/Docker-26-2496ED?logo=docker)
+![Docker Compose](https://img.shields.io/badge/Compose-2.29-2496ED?logo=docker)
+
 Graduate Invitation is a modern web application that allows multiple graduates to create and share personalized graduation invitation pages. Each graduate can generate unique access codes for their guests, while visitors can view event details and interact with an integrated AI chatbot for ceremony-related questions.
 
 ## Key Features
@@ -11,44 +29,6 @@ Graduate Invitation is a modern web application that allows multiple graduates t
 - Responsive design
 - Azure deployment-ready
 - Modern frontend with Next.js + shadcn/ui
-
-## Tech Stack
-
-### Frontend
-![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
-![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38BDF8?logo=tailwindcss)
-![shadcn/ui](https://img.shields.io/badge/shadcn/ui-latest-black)
-
-### Backend
-![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi)
-![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python)
-![Uvicorn](https://img.shields.io/badge/Uvicorn-0.30-499848)
-
-### Database
-![MongoDB](https://img.shields.io/badge/MongoDB-7.0-47A248?logo=mongodb)
-
-### AI Integration
-![Azure OpenAI](https://img.shields.io/badge/Azure%20OpenAI-GPT-blue?logo=microsoft-azure)
-
-### DevOps
-![Docker](https://img.shields.io/badge/Docker-26-2496ED?logo=docker)
-![Docker Compose](https://img.shields.io/badge/Compose-2.29-2496ED?logo=docker)
-
-### Frontend
-- Next.js 14 (App Router)
-- TypeScript
-- shadcn/ui
-- Tailwind CSS
-- HTML/CSS/JS (public static pages)
-
-### Backend
-- FastAPI
-- Pydantic
-- MongoDB
-- Uvicorn
-- Docker
 
 ### AI Integration
 - Azure OpenAI GPT models
