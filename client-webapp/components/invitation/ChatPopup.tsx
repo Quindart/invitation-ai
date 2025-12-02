@@ -28,10 +28,6 @@ interface ChatPopupProps {
   onClose: () => void;
   graduateId: string | null;
 }
-
-const API_URL =
-  'https://invitation-backend.jollysea-6ff72832.southeastasia.azurecontainerapps.io/api';
-
 const SUGGESTED_QUESTIONS = [
   { icon: <Clock className="h-3 w-3" />, text: 'Mấy giờ check-in?' },
   { icon: <UserCircle2 className="h-3 w-3" />, text: 'Trang phục?' },
@@ -74,7 +70,7 @@ export default function ChatPopup({ isOpen, onClose, graduateId }: ChatPopupProp
     setLoading(true);
 
     try {
-      const res = await fetch(`${API_URL}/graduates/${graduateId}/chat`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/graduates/${graduateId}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: messageText }),

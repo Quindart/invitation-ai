@@ -8,9 +8,6 @@ import { Loader2, PlayCircle } from 'lucide-react';
 import { UserVerifiedData } from '@/app/types';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_URL =
-  'https://invitation-backend.jollysea-6ff72832.southeastasia.azurecontainerapps.io/api';
-
 interface Props {
   onVerified: (data: UserVerifiedData) => void;
 }
@@ -58,7 +55,7 @@ export default function InvitationCodeForm({ onVerified }: Props) {
     }
     try {
       setLoading(true);
-      const response = await fetch(`${API_URL}/invitations/verify`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/invitations/verify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ invitation_code: normalizedCode }),
